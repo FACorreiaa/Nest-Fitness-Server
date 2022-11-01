@@ -6,9 +6,24 @@ import { PrismaService } from 'src/prisma.service';
 export class UserService {
   constructor(private prisma: PrismaService) {}
 
+  //create new user
   async createUser(data: Prisma.UserCreateInput): Promise<UserModel> {
     return this.prisma.user.create({
       data,
+    });
+  }
+
+  //change password
+  async updatePassword(params: {
+    where: Prisma.UserWhereUniqueInput;
+    data: Prisma.UserUpdateInput;
+  }): Promise<UserModel> {
+    const { data, where } = params;
+    console.log('data', data);
+    console.log('where', where);
+    return this.prisma.user.update({
+      data,
+      where,
     });
   }
 
