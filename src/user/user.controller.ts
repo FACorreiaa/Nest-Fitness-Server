@@ -6,14 +6,14 @@ import { User as UserModel } from '@prisma/client';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get('api/v1/user/show-users')
+  @Get('api/v1/users/show-users')
   async getPublishedPosts(): Promise<UserModel[]> {
     return this.userService.getAllusers({
       //where: { published: true },
     });
   }
 
-  @Post('api/v1/user/create-user')
+  @Post('api/v1/user/login/create-user')
   async createUser(
     @Body()
     userData: {
