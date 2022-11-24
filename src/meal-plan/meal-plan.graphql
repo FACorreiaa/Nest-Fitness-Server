@@ -1,0 +1,24 @@
+type MealPlan {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateMealPlanInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateMealPlanInput {
+  id: Int!
+}
+
+type Query {
+  mealPlan: [MealPlan]!
+  mealPlan(id: Int!): MealPlan
+}
+
+type Mutation {
+  createMealPlan(createMealPlanInput: CreateMealPlanInput!): MealPlan!
+  updateMealPlan(updateMealPlanInput: UpdateMealPlanInput!): MealPlan!
+  removeMealPlan(id: Int!): MealPlan
+}

@@ -12,17 +12,28 @@ datasource db {
 }
 
 model User {
-  id            Int            @id @default(autoincrement())
-  first_name    String?
-  last_name     String?
-  gender        String
-  email         String         @unique
-  nickname      String         @unique
-  password      String
-  profile       Profile?
-  mealplan      Mealplan[]
-  exercise_plan ExercisePlan[]
-  userBioData   UserBioData?
+  id                Int                 @id @default(autoincrement())
+  first_name        String?
+  last_name         String?
+  gender            String
+  email             String              @unique
+  nickname          String              @unique
+  password          String
+  profile           Profile?
+  mealplan          Mealplan[]
+  exercise_plan     ExercisePlan[]
+  userBioData       UserBioData?
+  userSuggestedPlan UserSuggestedPlan[]
+}
+
+model UserSuggestedPlan {
+  id             Int          @id @default(autoincrement())
+  User           User?        @relation(fields: [userId], references: [id])
+  userId         Int?
+  mealPlan       Mealplan     @relation(fields: [mealplanId], references: [id])
+  mealplanId     Int
+  exercisePlan   ExercisePlan @relation(fields: [exercisePlanId], references: [id])
+  exercisePlanId Int
 }
 
 model Profile {
@@ -44,16 +55,17 @@ model UserBioData {
 }
 
 model Mealplan {
-  id         Int      @id @default(autoincrement())
-  name       String
-  type       String
-  meal_list  MealList @relation(fields: [mealListId], references: [id])
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  active     Boolean  @default(false)
-  author     User     @relation(fields: [authorId], references: [id])
-  authorId   Int
-  mealListId Int
+  id                Int                 @id @default(autoincrement())
+  name              String
+  type              String
+  meal_list         MealList            @relation(fields: [mealListId], references: [id])
+  created_at        DateTime            @default(now())
+  updated_at        DateTime            @updatedAt
+  active            Boolean             @default(false)
+  author            User                @relation(fields: [authorId], references: [id])
+  authorId          Int
+  mealListId        Int
+  UserSuggestedPlan UserSuggestedPlan[]
 }
 
 model MealList {
@@ -92,16 +104,17 @@ model Macros {
 }
 
 model ExercisePlan {
-  id             Int          @id @default(autoincrement())
-  name           String
-  type           String
-  exercise_list  ExerciseList @relation(fields: [exerciseListId], references: [id])
-  created_at     DateTime     @default(now())
-  updated        DateTime     @updatedAt
-  active         Boolean      @default(false)
-  author         User         @relation(fields: [authorId], references: [id])
-  authorId       Int
-  exerciseListId Int
+  id                Int                 @id @default(autoincrement())
+  name              String
+  type              String
+  exercise_list     ExerciseList        @relation(fields: [exerciseListId], references: [id])
+  created_at        DateTime            @default(now())
+  updated           DateTime            @updatedAt
+  active            Boolean             @default(false)
+  author            User                @relation(fields: [authorId], references: [id])
+  authorId          Int
+  exerciseListId    Int
+  UserSuggestedPlan UserSuggestedPlan[]
 }
 
 model ExerciseList {

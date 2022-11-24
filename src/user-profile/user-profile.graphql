@@ -1,0 +1,24 @@
+type UserProfile {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateUserProfileInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateUserProfileInput {
+  id: Int!
+}
+
+type Query {
+  userProfile: [UserProfile]!
+  userProfile(id: Int!): UserProfile
+}
+
+type Mutation {
+  createUserProfile(createUserProfileInput: CreateUserProfileInput!): UserProfile!
+  updateUserProfile(updateUserProfileInput: UpdateUserProfileInput!): UserProfile!
+  removeUserProfile(id: Int!): UserProfile
+}
