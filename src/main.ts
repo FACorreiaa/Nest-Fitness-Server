@@ -8,3 +8,5 @@ async function bootstrap() {
   console.log(`GraphQL Playground: ${await app.getUrl()}/graphql`);
 }
 bootstrap();
+
+export const viteNodeApp = NestFactory.create(AppModule);
