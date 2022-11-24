@@ -15,7 +15,7 @@ export class UserResolver {
   }
 
   @Query('user')
-  async post(@Args('id') args: string): Promise<User> {
+  async post(@Args('id') args: number): Promise<User> {
     return this.userService.findOne(args);
   }
 

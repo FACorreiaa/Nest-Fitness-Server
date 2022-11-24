@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "vite",
+    "generate-prisma": "./node_modules/.bin/prisma2 generate",
     "generate:typings": "ts-node generate-typings.ts",
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -39,7 +39,7 @@
     "apollo-server-express": "^3.11.1",
     "graphql": "^16.6.0",
     "graphql-subscriptions": "^2.0.0",
-    "prisma": "^4.5.0",
+    "prisma": "^4.6.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
