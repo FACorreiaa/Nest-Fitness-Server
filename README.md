@@ -2,6 +2,8 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
+# USING THIS PROJECT RIGHT NOW ONLY FOR A GRAPHQL NEST PRISMA TEMPLATE USING CODE FIRST
+
 # Nest-Fitness-Server
 
 - Stalled version with Go [Gin Gonic version](https://github.com/FACorreiaa/fitness-server-app)

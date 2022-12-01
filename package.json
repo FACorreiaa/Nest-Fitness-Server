@@ -25,7 +25,8 @@
     "prisma-reset": "yarn prisma migrate reset",
     "prisma-push": "yarn prisma db push --preview-feature",
     "prisma-pull": "yarn prisma db pull",
-    "prisma-studio": "npx prisma studio"
+    "prisma-studio": "npx prisma studio",
+    "prisma-generate": "npx prisma generate"
   },
   "dependencies": {
     "@nestjs/apollo": "^10.1.6",
@@ -36,11 +37,11 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/websockets": "^9.2.0",
-    "@prisma/client": "^4.5.0",
+    "@prisma/client": "^4.7.0",
     "apollo-server-express": "^3.11.1",
     "graphql": "^16.6.0",
     "graphql-subscriptions": "^2.0.0",
-    "prisma": "^4.6.1",
+    "prisma": "^4.7.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
